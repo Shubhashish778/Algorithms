@@ -1,0 +1,28 @@
+#Euclidean Algorithm
+#It  uses a division algorithm such as long division in combination with the observation that the gcd of two numbers also divides their difference. 
+"""
+gcd(0,a)=a
+gcd(a,b)=gcd(a,a%b) provided a>=b or gcd(b,b%a) provided b>=a
+"""
+#code:
+
+def lcmandgcd(arr):
+  a,b=arr[0],arr[1]
+  while True:
+          if b==0:
+              print((arr[0]*arr[1])//a,a)
+              return a
+          if a==0:
+              print((arr[0] * arr[1]) //b, b)
+              return b
+          if a>=b:
+              a,b=b,a%b
+          else:
+              a,b=a,b%a
+
+
+testcase = int(input())
+for _ in range(0, testcase):
+    #num = list(map(int, input().rstrip().split()))
+    arr = list(map(int, input().rstrip().split()))
+    lcmandgcd(arr)
