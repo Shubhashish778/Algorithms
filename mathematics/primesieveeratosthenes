@@ -1,0 +1,22 @@
+#It does so by iteratively marking as composite (i.e., not prime) the multiples of each prime, starting with the first prime number, 2. 
+#The multiples of a given prime are generated as a sequence of numbers starting from that prime, with constant difference between them that is equal to that prime.
+
+def process(num):
+    temp=[1 for x in range(num+1)]
+    temp[0],temp[1]=0,0
+
+    for j in range(2,num//2+1):
+        for i in range(2,num//j+1):
+
+            temp[i*j]=0
+    ans=[]
+    for j in range(0,num+1):
+        if temp[j]==1:
+            ans.append(j)
+    print(*ans)
+
+testcase = int(input())
+for _ in range(0, testcase):
+    #num = list(map(int, input().rstrip().split()))
+    arr = list(map(int, input().rstrip().split()))
+    process(arr[0])
